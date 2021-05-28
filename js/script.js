@@ -68,37 +68,37 @@ if (a > 0 && b > 0 && h > 0) {
 }
 alert(result);*/
 
-/***Задача 2***/
+//***Задача 3***
 // Пользователь вводит сумму вклада и процент, который будет начисляться ежегодно.
 // Отобразить размер вклада поочередно на ближайшие 5 лет.
-let sum; //сумма вклада
-let percent; //годовой процент
-let countYears; //кол-во лет
-let result; //итоговая строка с выводом
-let endWordYears = ""; //строка, содержащая "год(а)", "лет"
-sum = Number(prompt("Сумма вклада:"));
-percent = Number(prompt("Годовой %:"));
-countYears = Number(prompt("Период вклада (лет):"));
-for (let i = 1; i <= countYears; i++) {
-	sum += sum * percent / 100;
+// /*let sum; //сумма вклада
+// let percent; //годовой процент
+// let countYears; //кол-во лет
+// let result; //итоговая строка с выводом
+// let endWordYears = ""; //строка, содержащая "год(а)", "лет"
+// sum = Number(prompt("Сумма вклада:"));
+// percent = Number(prompt("Годовой %:"));
+// countYears = Number(prompt("Период вклада (лет):"));
+// for (let i = 1; i <= countYears; i++) {
+// 	sum += sum * percent / 100;
 
 	//1 год, 21 год
 	//2, 3, 4 года
 	//5,6,7,8,9,10 лет + 11 лет!
 
-	if (i != 11 && i % 10 == 1) {
-		endWordYears = "год";
-	} else if ((i >= 5 && i <= 20) || (i % 10 >= 5 && i % 10 <= 9) || (i % 10) == 0) {
-		endWordYears = "лет";
-	} else {
-		endWordYears = "года";
-	}
+// 	if (i != 11 && i % 10 == 1) {
+// 		endWordYears = "год";
+// 	} else if ((i >= 5 && i <= 20) || (i % 10 >= 5 && i % 10 <= 9) || (i % 10) == 0) {
+// 		endWordYears = "лет";
+// 	} else {
+// 		endWordYears = "года";
+// 	}
 
-	result += `Через ${i} ${endWordYears} сумма = ${sum.toFixed(2)}\n`;
-	console.log(`Через ${i} ${endWordYears} сумма = ${sum.toFixed(2)}`);
-}
+// 	result += `Через ${i} ${endWordYears} сумма = ${sum.toFixed(2)}\n`;
+// 	console.log(`Через ${i} ${endWordYears} сумма = ${sum.toFixed(2)}`);
+// }
 
-alert(result);
+// alert(result);*/
 
 // инкремент
 // i = i + 1;
@@ -119,3 +119,19 @@ alert(result);
 // console.log(y);
 // console.log(z);
 // console.log(x);
+
+//Задача 5
+//Выведите столбец чисел от 1 до 50
+
+// let i = 1;
+//цикл с предусловием
+// while (i <= 50) {
+//   console.log(i + `\n`);
+//   i++;
+// }
+//цикл с постусловием
+let i = 1;
+do {
+  console.log (i + `\n`);
+  i++;
+} while (i <= 50);
