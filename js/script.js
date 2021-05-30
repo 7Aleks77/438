@@ -300,12 +300,33 @@ alert(result);*/
 //    splice(-3, 3) - удаляет 3 элемента с конца
 //    splice(0, 3, 1000, 2000) - удаляет 3 элемента с начала и вставляет 2 новых (1000 и 2000)
 
-let mas = [100, 200, 300];
-for(let i = 0, num = 2; i < 10; i++) {
-  mas.push(num);
-  num += 2;
-}
-for(let i = 0; i < mas.length; i++) {
-    console.log ( `${i+1}. ${mas[i]}` );
-  }
+// let mas = [100, 200, 300];
+// for(let i = 0, num = 2; i < 10; i++) {
+//   mas.push(num);
+//   num += 2;
+// }
+// for(let i = 0; i < mas.length; i++) {
+//     console.log ( `${i+1}. ${mas[i]}` );
+//   }
 
+
+//двух мерный массив
+let matrix = [
+  [100, 200, 300],
+  ["Москва", "Красноярск", "Волгоград", "Питер"],
+  [true, false]
+];
+//выводим в столбик москва. красноярск. волгоград. питер
+for(let i in matrix) {
+  if(i == 1) {
+    // 1-й способ
+    for(let j in matrix[1]) {
+      console.log(`${+j + 1}. ${matrix[1][j]}`);
+    }
+
+    // 2-й способ
+    // for(let j = 0; j < matrix[1].length; j++) {
+    //   console.log(`${+j + 1}. ${matrix[1][j]}`);
+    // }
+  }
+}
