@@ -333,64 +333,77 @@ alert(result);*/
 
 //****ПРИМЕР ЗАПОЛНЕНИЯ ДВУМЕРНОГО МАССИВА****/
 
-let matrix = [];
+// let matrix = [];
   // [100, 200, 300],
   // ["Москва", "Красноярск", "Волгоград", "Питер"],
   // [true, false]
-let countElements = +prompt("Кол-во элементов в массиве:");
+// let countElements = +prompt("Кол-во элементов в массиве:");
 
-for(let i = 0; i < countElements; i++) {
-  let isArray = confirm(`${i + 1}-й элемент, массив?`);//true или false
+// for(let i = 0; i < countElements; i++) {
+//   let isArray = confirm(`${i + 1}-й элемент, массив?`);//true или false
 
-  if(isArray) {
-    let innerCount = +prompt("Кол-во элементов в массиве?");
+//   if(isArray) {
+//     let innerCount = +prompt("Кол-во элементов в массиве?");
 
-    matrix[i] = [];//создаём пустой элемент массива(тоже массив)
+//     matrix[i] = [];//создаём пустой элемент массива(тоже массив)
 
-    for(let j = 0, elem = ""; j < innerCount; j++) {
-      elem = prompt(`${j + 1}-й эл-т:`);
+//     for(let j = 0, elem = ""; j < innerCount; j++) {
+//       elem = prompt(`${j + 1}-й эл-т:`);
 
-      if( (+elem).toString() == "NaN"
-          && elem != "true" && elem != "false") {// проверка на строку или число
-        matrix[i][j] = elem;//запись строки
-      }
-      else if( isNaN(+elem) ) {//проверка на булиан
-        elem == "true" ? matrix[i][j] = true : matrix[i][j] = false;//запись булиан
-      }
-      else {
-        matrix[i][j] = +elem;//запись числа
-      }
-    }
-  }
-  else {
-    matrix[i] = +prompt(`Введите число:`);//попадаем сюда если let isArray false
+//       if( (+elem).toString() == "NaN"
+//           && elem != "true" && elem != "false") {// проверка на строку или число
+//         matrix[i][j] = elem;//запись строки
+//       }
+//       else if( isNaN(+elem) ) {//проверка на булиан
+//         elem == "true" ? matrix[i][j] = true : matrix[i][j] = false;//запись булиан
+//       }
+//       else {
+//         matrix[i][j] = +elem;//запись числа
+//       }
+//     }
+//   }
+//   else {
+//     matrix[i] = +prompt(`Введите число:`);//попадаем сюда если let isArray false
     //получается одномерный массив
-  }
-}
+//   }
+// }
 // вывод элементов массива в консоль
-for(let i in matrix) {
-  if(Array.isArray(matrix[i])) {//проверка на true false
-    for(let j = 0; j < matrix[i].length; j++) {//если true
-      console.log(matrix[i][j]);
-    }
-  }
-  else {//если false
-    console.log(matrix[i]);
-  }
-}
+// for(let i in matrix) {
+//   if(Array.isArray(matrix[i])) {//проверка на true false
+//     for(let j = 0; j < matrix[i].length; j++) {//если true
+//       console.log(matrix[i][j]);
+//     }
+//   }
+//   else {//если false
+//     console.log(matrix[i]);
+//   }
+// }
 
-console.log(JSON.stringify(matrix));//вывод в консоли в виде массивов с[]
+// console.log(JSON.stringify(matrix));//вывод в консоли в виде массивов с[]
 
 // for(let i in matrix) {
 //   if(i == 1) {
-//     // 1-й способ
+    // 1-й способ
 //     for(let j in matrix[1]) {
 //       console.log(`${+j + 1}. ${matrix[1][j]}`);
 //     }
 
-//     // 2-й способ
+    // 2-й способ
 //     for(let j = 0; j < matrix[1].length; j++) {
 //       console.log(`${+j + 1}. ${matrix[1][j]}`);
 //     }
 //   }
 // }
+
+//**** Пример ассоциативного массива *****/
+
+let assocMas = new Map([
+  ["number", 1000],// [ключ, значение]
+  ["city", "Москва"],
+  ["flag", true]
+]);
+assocMas.set("date", "28.04.2021"); //создать элемент с ключом "date"
+console.log(assocMas.get("date")); //вернуть значение по ключу "date"
+console.log(assocMas.size); //длина массива
+assocMas.delete("number"); //удаление элемента с ключом "number"
+console.log(assocMas);
