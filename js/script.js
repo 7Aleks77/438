@@ -435,7 +435,7 @@ let button = {
   isBorder: false
 };
 
-let btn = document.createElement("button");
+let btn = document.createElement("button");//создаём кнопку
 
 for (let property in button) {
   if (property == "text") {
@@ -453,7 +453,7 @@ for (let property in button) {
   }
 }
 
-document.body.prepend(btn);
+document.body.prepend(btn);//выводим кнопку на экран
 
 // console.dir(btn.style.boxShadow);
 
