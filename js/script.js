@@ -228,7 +228,7 @@ alert(result);*/
 //       if (num2 < 0) {
 //         result = Math.pow(num1, num2).toFixed(4);
 //       } else {
-        // result = num1**num2;
+// result = num1**num2;
 //         result = Math.pow(num1, num2);
 //       }
 
@@ -243,7 +243,7 @@ alert(result);*/
 
 //       break;
 
-      //отмена (закрытие меню)
+//отмена (закрытие меню)
 //     case "0":
 //     case null:
 //       cancel = false;
@@ -319,24 +319,24 @@ alert(result);*/
 //выводим в столбик москва. красноярск. волгоград. питер
 // for(let i in matrix) {
 //   if(i == 1) {
-    // 1-й способ
+// 1-й способ
 //     for(let j in matrix[1]) {
 //       console.log(`${+j + 1}. ${matrix[1][j]}`);
 //     }
 
-    // 2-й способ
-    // for(let j = 0; j < matrix[1].length; j++) {
-    //   console.log(`${+j + 1}. ${matrix[1][j]}`);
-    // }
+// 2-й способ
+// for(let j = 0; j < matrix[1].length; j++) {
+//   console.log(`${+j + 1}. ${matrix[1][j]}`);
+// }
 //   }
 // }
 
 //****ПРИМЕР ЗАПОЛНЕНИЯ ДВУМЕРНОГО МАССИВА****/
 
 // let matrix = [];
-  // [100, 200, 300],
-  // ["Москва", "Красноярск", "Волгоград", "Питер"],
-  // [true, false]
+// [100, 200, 300],
+// ["Москва", "Красноярск", "Волгоград", "Питер"],
+// [true, false]
 // let countElements = +prompt("Кол-во элементов в массиве:");
 
 // for(let i = 0; i < countElements; i++) {
@@ -364,7 +364,7 @@ alert(result);*/
 //   }
 //   else {
 //     matrix[i] = +prompt(`Введите число:`);//попадаем сюда если let isArray false
-    //получается одномерный массив
+//получается одномерный массив
 //   }
 // }
 // вывод элементов массива в консоль
@@ -383,12 +383,12 @@ alert(result);*/
 
 // for(let i in matrix) {
 //   if(i == 1) {
-    // 1-й способ
+// 1-й способ
 //     for(let j in matrix[1]) {
 //       console.log(`${+j + 1}. ${matrix[1][j]}`);
 //     }
 
-    // 2-й способ
+// 2-й способ
 //     for(let j = 0; j < matrix[1].length; j++) {
 //       console.log(`${+j + 1}. ${matrix[1][j]}`);
 //     }
@@ -397,13 +397,68 @@ alert(result);*/
 
 //**** Пример ассоциативного массива *****/
 
-let assocMas = new Map([
-  ["number", 1000],// [ключ, значение]
-  ["city", "Москва"],
-  ["flag", true]
-]);
-assocMas.set("date", "28.04.2021"); //создать элемент с ключом "date"
-console.log(assocMas.get("date")); //вернуть значение по ключу "date"
-console.log(assocMas.size); //длина массива
-assocMas.delete("number"); //удаление элемента с ключом "number"
-console.log(assocMas);
+// let assocMas = new Map([
+//   ["number", 1000],// [ключ, значение]
+//   ["city", "Москва"],
+//   ["flag", true]
+// ]);
+// assocMas.set("date", "28.04.2021"); //создать элемент с ключом "date"
+// console.log(assocMas.get("date")); //вернуть значение по ключу "date"
+// console.log(assocMas.size); //длина массива
+// assocMas.delete("number"); //удаление элемента с ключом "number"
+// assocMas.clear();//очищает массив
+// console.log(assocMas);
+// console.log(assocMas.has("city"));//проверяет есть ли такой ключ
+
+
+/*** ОБЪЕКТЫ (начало) ***/
+// Литеральный способ создания объекта {}
+let button = {
+  text: "Купить",
+
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+
+  width: "350px",
+  height: "70px",
+  marginLeft: "-175px",
+  marginTop: "-35px",
+  padding: "10px 30px",
+
+  fontSize: "18px",
+  color: "#ffffff",
+  backgroundColor: "darkred",
+  boxShadow: "0 0 5px #ff0000",
+  borderRadius: "10px",
+
+  isBorder: false
+};
+
+let btn = document.createElement("button");
+
+for (let property in button) {
+  if (property == "text") {
+    btn.textContent = button[property];
+  } else {
+    if (property == "isBorder") {
+      if (button[property]) {
+        btn.style.border = "2px solid darkred";
+      } else {
+        btn.style.border = "none";
+      }
+    } else {
+      btn.style[property] = button[property];
+    }
+  }
+}
+
+document.body.prepend(btn);
+
+// console.dir(btn.style.boxShadow);
+
+
+//string, number, boolean, Array, Object, Function
+
+
+/*** ОБЪЕКТЫ (конец) ***/
