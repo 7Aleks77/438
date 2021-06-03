@@ -416,7 +416,7 @@ alert(result);*/
 let button = {
   id: "generateBtn",
   text: "Купить",
-  class: "btn",
+  class: "btn animate__animated",
   isBorder: false
 };
 //select - селектор тега (типа)
@@ -438,12 +438,25 @@ select.addEventListener("input", () => {
   if (document.getElementById(button.id)) {
     //btn.className = "btn " + select.value; //***1 variant****
     btn.className = `${button.class} ${select.value}`; //**** 2 variant*** btn btn-default/btn-big/btn-small
+
+    btn.classList.add("animate__bounceIn"); //добавляем анимацию
+
+    setTimeout(() => {
+      btn.classList.remove("animate__bounceIn"); //удаляем анимацию через 1 сек чтобы не мешала подключению следующей анимации
+    }, 1000);
+
   } else {
     btn = document.createElement("button"); //создаём кнопку
     btn.id = button.id;
     btn.textContent = button.text;
     //btn.className = "btn " + select.value;//****1 variant****
-    btn.className = `${button.class} ${select.value}`;//**2 variant ****
+    btn.className = `${button.class} ${select.value}`; //**2 variant ****
+
+    btn.classList.add("animate__backInDown");//добавляем анимацию
+
+    setTimeout(() => {
+      btn.classList.remove("animate__backInDown");//удаляем анимацию через 2 сек чтобы не мешала подключению следующей анимации
+    }, 2000);
 
     div.insertAdjacentElement("afterend", btn); // показывает кнопку
   }
