@@ -414,46 +414,55 @@ alert(result);*/
 /*** ОБЪЕКТЫ (начало) ***/
 // Литеральный способ создания объекта {}
 let button = {
+  id: "generateBtn",
   text: "Купить",
-
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-
-  width: "350px",
-  height: "70px",
-  marginLeft: "-175px",
-  marginTop: "-35px",
-  padding: "10px 30px",
-
-  fontSize: "18px",
-  color: "#ffffff",
-  backgroundColor: "darkred",
-  boxShadow: "0 0 5px #ff0000",
-  borderRadius: "10px",
-
+  class: "btn",
   isBorder: false
 };
+//select - селектор тега (типа)
+//.select - селектор класса
+//select option - контекстный селектор (селектор потомков)
+//.menu .item-menu - контекстный селектор (селектор потомков)
+//select > option - дочерний селектор
+//[type] - селектор по атрибуту
+//[type="checkbox"] - селектор по атрибуту
+//select + p - соседний селектор (найди p, который сразу за select)
+//select ~ p - соседи
 
-let btn = document.createElement("button");//создаём кнопку
 
-for (let property in button) {
-  if (property == "text") {
-    btn.textContent = button[property];
+// let select = document.querySelector("[id='variantsButton']");// поиск обьекта**1 variant**
+let select = document.getElementById("variantsButton"); //**2 variant *
+let div = document.querySelector(".buttons");
+let btn;
+select.addEventListener("input", () => {
+  if (document.getElementById(button.id)) {
+    //btn.className = "btn " + select.value; //***1 variant****
+    btn.className = `${button.class} ${select.value}`; //**** 2 variant*** btn btn-default/btn-big/btn-small
   } else {
-    if (property == "isBorder") {
-      if (button[property]) {
-        btn.style.border = "2px solid darkred";
-      } else {
-        btn.style.border = "none";
-      }
-    } else {
-      btn.style[property] = button[property];
-    }
-  }
-}
+    btn = document.createElement("button"); //создаём кнопку
+    btn.id = button.id;
+    btn.textContent = button.text;
+    //btn.className = "btn " + select.value;//****1 variant****
+    btn.className = `${button.class} ${select.value}`;//**2 variant ****
 
-document.body.prepend(btn);//выводим кнопку на экран
+    div.insertAdjacentElement("afterend", btn); // показывает кнопку
+  }
+});
+
+
+// let btn = document.createElement("button"); //создаём кнопку
+// btn.textContent = button.text;
+// btn.classList.add(button.class, "btn-big");
+
+
+//   if (button.isBorder) {
+//       btn.style.border = "2px solid red";
+//     } 
+//     else {
+//       btn.style.border = "none";
+//     }
+
+// document.body.prepend(btn); //выводим кнопку на экран
 
 // console.dir(btn.style.boxShadow);
 
